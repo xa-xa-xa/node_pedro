@@ -1,0 +1,13 @@
+body {
+    background-color: gray;
+}
+
+h1 {
+    color: rebeccapurple;
+}
+
+.orange {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+}

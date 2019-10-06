@@ -1,0 +1,19 @@
+{
+  "name": "node_js",
+  "version": "1.0.0",
+  "description": "node.js tutorial",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xa-xa-xa/node_pedro.git"
+  },
+  "author": "SashaK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xa-xa-xa/node_pedro/issues"
+  },
+  "homepage": "https://github.com/xa-xa-xa/node_pedro#readme"
+}
