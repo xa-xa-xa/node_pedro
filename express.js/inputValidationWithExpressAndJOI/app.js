@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const Joi = require('@hapi/joi')
+
 const bodyParser = require('body-parser')
 const app = express()
 
@@ -15,12 +17,28 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    console.log(req.body);
-    // data base work here
-    res.json({
-        success: true
+    // console.log('req.body: \n', req.body);
+    const schema = Joi.object({
+        email: Joi.string()
+            .email({
+                minDomainSegments: 2,
+                tlds: {
+                    allow: ['com', 'net']
+                }
+            }).required(),
+
+        password: Joi.string()
+            .pattern(/^[a-zA-Z0-9]{5,30}$/).required()
+    });
+    const {
+        value,
+        err
+    } = schema.validate({
+        email: req.body[0].value,
+        password: req.body[1].value
     })
-    // res.send('success: user data posted')
+
+    console.log(Joi.attempt(value, schema, '! ERROR: '));
 })
 
 app.listen(3000);
