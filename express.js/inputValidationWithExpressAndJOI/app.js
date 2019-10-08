@@ -38,7 +38,19 @@ app.post('/', (req, res) => {
         password: req.body[1].value
     })
 
-    console.log(Joi.attempt(value, schema, '! ERROR: '));
+    try {
+        Joi.attempt(value, schema, err);
+        res.send('successfully logged in!')
+
+    } catch (error) {
+        console.log(error);
+        res.send('wrong!')
+
+    }
+
+
+
+
 })
 
 app.listen(3000);
