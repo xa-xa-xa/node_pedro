@@ -6,14 +6,14 @@ const app = express()
 app.use(bodyParser.json());
 
 //middleware  function
-app.use('/example', (req, res, next) => {
+app.use((req, res, next) => {
     console.log('from middleware function: ', req.url, req.method);
     req.banana = 'banana';
     next();
 })
 
 app.get('/', (req, res) => {
-    console.log(req)
+    console.log('modified user request: ', req.banana)
     res.send('MiddleWare!');
 
 })
